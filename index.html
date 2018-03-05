@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Lazy-Load Test Playground</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <!-- Can use CDN as well  -->
+  <script type="text/javascript" src="./jquery.lazy.min.js"></script>
+  <!-- Can use CDN as well  -->
+
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <div class="center">
+    <h1>lazy load testing grounds</h1>
+    <img class="lazy" data-src="./img/beach.jpg" alt="testing">
+    <img class="lazy" data-src="./img/big-cat.jpg" alt="testing">
+    <img class="lazy" data-src="./img/boom.jpg" alt="testing">
+    <img class="lazy" data-src="./img/car.jpg" alt="testing">
+    <img class="lazy" data-src="./img/dogs.jpg" alt="testing">
+    <img class="lazy" data-src="./img/hay.jpg" alt="testing">
+    <img class="lazy" data-src="./img/lizard.jpg" alt="testing">
+    <img class="lazy" data-src="./img/robot.jpg" alt="testing">
+    <img class="lazy" data-src="./img/space.jpg" alt="testing">
+    <img class="lazy" data-src="./img/tree.jpg" alt="testing">
+    <img class="lazy" data-src="./img/umm.jpg" alt="testing">
+    <img class="lazy" data-src="./img/van.jpg" alt="testing">
+  </div>
+  <script>
+    $(function() {
+      var loadedElements = 0;
+
+      $('.lazy').lazy({
+        beforeLoad: function(element) {
+          console.log('image "' + element.data('src') + '" is about to be loaded');
+        },
+        afterLoad: function(element) {
+          loadedElements++;
+          console.log('image "' + element.data('src') + '" was loaded successfully');
+        },
+        onError: function(element) {
+          loadedElements++;
+          console.log('image "' + element.data('src') + '" could not be loaded');
+        },
+        onFinishedAll: function() {
+          console.log('finished loading ' + loadedElements + ' elements');
+          console.log('lazy instance is about to be destroyed')
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.center {
+    text-align: center;
+}
+
+
+/* setting height and width prevent page from jumping around on image laod */
+img.lazy {
+  width: 700px;
+  height: 467px;
+  display: block;
+  margin: 0 auto;
+}
