@@ -17,6 +17,7 @@
 <body>
   <div class="center">
     <h1>lazy load testing grounds</h1>
+    <p>These images are HUGE. This example uses large assets to test the efficiency of this plugin. Total of image sizes is over 6MB combined.</p>
     <img class="lazy" data-src="./img/beach.jpg" alt="testing">
     <img class="lazy" data-src="./img/big-cat.jpg" alt="testing">
     <img class="lazy" data-src="./img/boom.jpg" alt="testing">
@@ -48,8 +49,12 @@
         },
         onFinishedAll: function() {
           console.log('finished loading ' + loadedElements + ' elements');
+          // lazy is destroyed by default when all elements are loaded
           console.log('lazy instance is about to be destroyed')
         }
+        // below code will delay load to show loading.gif. Just inclduded here for the examples sake.
+        // ,combined: true,
+        // delay: 2000
       });
     });
   </script>

@@ -2,11 +2,24 @@
     text-align: center;
 }
 
-
 /* setting height and width prevent page from jumping around on image laod */
 img.lazy {
   width: 700px;
   height: 467px;
   display: block;
   margin: 0 auto;
+  background-image: url('./img/loading.gif');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+}
+
+/* to make responsive for testing */
+/* Would not normally lose aspect ratio but placeholder heights and widths set above */
+img {
+  padding-top: 25px;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
